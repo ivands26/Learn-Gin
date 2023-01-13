@@ -7,6 +7,8 @@ import (
 	"github.com/ivands26/Learn-Gin/config"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
+
+	cData "github.com/ivands26/Learn-Gin/feature/comment/data"
 )
 
 func InitDB(cfg *config.AppConfig) *gorm.DB {
@@ -25,5 +27,5 @@ func InitDB(cfg *config.AppConfig) *gorm.DB {
 }
 
 func MigrateDB(db *gorm.DB) {
-	db.AutoMigrate()
+	db.AutoMigrate(cData.Comment{})
 }
